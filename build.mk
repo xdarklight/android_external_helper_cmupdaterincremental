@@ -1,11 +1,3 @@
-# -----------------------------------------------------------------
-# The incremental update package for CMUpdater
-# Call this with the following commands after a standard build (make bacon) has run:
-## export INCREMENTAL_SOURCE_BUILD_ID=f1785074ab
-## export INCREMENTAL_SOURCE_TARGETFILES_ZIP=path/to/cm_devicename-target_files-f1785074ab.zip
-## (optional) export OTA_FROM_TARGET_SCRIPT_EXTRA_OPTS=(anything you want)
-## ONE_SHOT_MAKEFILE=external/helper_cmupdaterincremental/build.mk make cmupdaterincremental
-
 LOCAL_PATH := $(call my-dir)
 
 name := incremental-$(INCREMENTAL_SOURCE_BUILD_ID)-$(FILE_NAME_TAG).zip
