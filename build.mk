@@ -4,8 +4,6 @@ name := incremental-$(INCREMENTAL_SOURCE_BUILD_ID)-$(FILE_NAME_TAG).zip
 
 INTERNAL_CMUPDATER_INCREMENTAL_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name)
 
-$(INTERNAL_CMUPDATER_INCREMENTAL_PACKAGE_TARGET): KEY_CERT_PAIR := $(DEFAULT_KEY_CERT_PAIR)
-
 # NOTE: Since the following variables are only valid for the given target
 # we manually need to keep them in sync with the INTERNAL_OTA_PACKAGE_TARGET
 # definition in build/core/Makefile!
@@ -45,7 +43,6 @@ $(INTERNAL_CMUPDATER_INCREMENTAL_PACKAGE_TARGET):
 
 	$(OTA_FROM_TARGET_SCRIPT) -v \
 	   -p $(HOST_OUT) \
-	   -k $(KEY_CERT_PAIR) \
 	   --backup=$(backuptool) \
 	   --override_device=$(override_device) \
 	   $(override_prop) \
