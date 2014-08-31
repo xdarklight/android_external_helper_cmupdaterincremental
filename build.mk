@@ -34,7 +34,9 @@ endif
 # END: KEEP IN SYNC WITH INTERNAL_OTA_PACKAGE_TARGET
 
 ifneq ($(TARGET_INCREMENTAL_OTA_VERBATIM_FILES),)
-    # This is only supported by Quarx2k/android/build and xdarklight/android_build!
+    # This is only supported by Quarx2k/android/build, xdarklight/android_build
+    # or whatever has cherry-picked:
+    # https://android-review.googlesource.com/#/c/106130/1/tools/releasetools/ota_from_target_files
     verbatim_files := --verbatim_files=$(TARGET_INCREMENTAL_OTA_VERBATIM_FILES)
 endif
 
