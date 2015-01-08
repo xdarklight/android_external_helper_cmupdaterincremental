@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-name := incremental-$(INCREMENTAL_SOURCE_BUILD_ID)-$(FILE_NAME_TAG).zip
+name := incremental-$(INCREMENTAL_SOURCE_BUILD_ID)-$(BUILD_NUMBER).zip
 
 INTERNAL_CMUPDATER_INCREMENTAL_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name)
 
@@ -27,10 +27,6 @@ endif
 ifneq ($(TARGET_UNIFIED_DEVICE),)
     $(INTERNAL_CMUPDATER_INCREMENTAL_PACKAGE_TARGET): override_prop := --override_prop=true
 endif
-
-ifneq ($(TARGET_NO_SEPARATE_RECOVERY),)
-    $(INTERNAL_CMUPDATER_INCREMENTAL_PACKAGE_TARGET): separate_recovery := --no_separate_recovery=true
-endif
 # END: KEEP IN SYNC WITH INTERNAL_OTA_PACKAGE_TARGET
 
 ifneq ($(TARGET_INCREMENTAL_OTA_VERBATIM_FILES),)
@@ -48,7 +44,6 @@ $(INTERNAL_CMUPDATER_INCREMENTAL_PACKAGE_TARGET):
 	   --backup=$(backuptool) \
 	   --override_device=$(override_device) \
 	   $(override_prop) \
-	   $(separate_recovery) \
 	   $(verbatim_files) \
 	   --incremental_from $(INCREMENTAL_SOURCE_TARGETFILES_ZIP) \
            $(OTA_FROM_TARGET_SCRIPT_EXTRA_OPTS) \
